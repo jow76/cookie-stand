@@ -13,6 +13,8 @@ const seattle = {
     cookiesEachHour: [],
     totalDailyCookies: 0,
     render: function(){
+        this.calcCustomersEachHour();
+        this.calcCookiesEachHour();
         const article = document.createElement("article");
         container.appendChild(article);
         const h3 = document.createElement("h3");
@@ -25,21 +27,24 @@ const seattle = {
             li.textContent = `${hour[i]} :  ${seattle.cookiesEachHour[i]} cookies.`
             ul.appendChild(li);
         }
+        const total = document.createElement("total");
+        total.textContent = `Total : ${this.totalDailyCookies} cookies.`
+        ul.appendChild(total)
     },
     calcCustomersEachHour: function(){
-        for(let i = 0; i < 14; i++){
+        for(let i = 0; i < hour.length; i++){
             this.customersEachHour[i]=randomNumber(23,65);
         }
     },
     calcCookiesEachHour: function(){
-        for(let i = 0; i < 14; i++){
-        this.cookiesEachHour[i]=randomNumber(23, 195);
+        for(let i = 0; i < hour.length; i++){
+            const oneHour = Math.ceil(this.customersEachHour[i] * this.avgCookiesPerCust);
+            this.cookiesEachHour.push(oneHour);
+            this.totalDailyCookies += oneHour;
         }
-    },
+    }
 }
 
-seattle.calcCustomersEachHour();
-seattle.calcCookiesEachHour();
 seattle.render();
 
 function randomNumber(min,max){
