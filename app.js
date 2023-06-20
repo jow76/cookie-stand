@@ -27,9 +27,9 @@ const seattle = {
             li.textContent = `${hour[i]} :  ${seattle.cookiesEachHour[i]} cookies.`
             ul.appendChild(li);
         }
-        const total = document.createElement("total");
-        total.textContent = `Total : ${this.totalDailyCookies} cookies.`
-        ul.appendChild(total)
+        const li = document.createElement("li");
+        li.textContent = `Total : ${this.totalDailyCookies} cookies.`
+        ul.appendChild(li)
     },
     calcCustomersEachHour: function(){
         for(let i = 0; i < hour.length; i++){
