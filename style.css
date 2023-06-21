@@ -68,7 +68,7 @@ main{
 #locations{
     background-color: salmon;
     width:fit-content;
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     padding:1rem;
     margin:5%;
@@ -79,17 +79,15 @@ main{
 }
 
 #locations ul{
-    display: flex;
+    display: inline-block;
     flex-direction: column;
-    margin-top: 3rem;
     list-style: circle;
     font-size: 1.5rem;
 }
 
 #locations img{
-    display: flex;
-    width: 20%;
+    display: inline;
+    width: 35%;
     height:50%;
-    flex-direction: row;
-    justify-content: flex-start;
+    margin-right: 2rem;
 }
