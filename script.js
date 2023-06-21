@@ -34,10 +34,9 @@ Store.prototype.render = function(){
     const li = document.createElement("li");
     li.textContent = `Total : ${this.totalDailyCookies} cookies.`
     ul.appendChild(li)
-    const table = document.createElement("table")
-    const headerRow = document.createElement("tr")
-    
     while(isTable==0){
+        const table = document.createElement("table")
+        const headerRow = document.createElement("tr")
         const article = document.createElement("article");
         container.appendChild(article);
         table.appendChild(headerRow)
