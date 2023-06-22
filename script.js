@@ -17,10 +17,12 @@ function Store(storeName, minCustPerHour, maxCustPerHour, avgCookiesPerCust){
     this.customersEachHour = [];
     this.cookiesEachHour = [];
     this.totalDailyCookies = 0;
-    this.pushStore = function(){
-        allStores.push(this)
-    }
-    this.pushStore;
+    // this.pushStore = function(){
+    //     allStores.push(this)
+    //     console.log(allStores)
+    // }
+    // this.pushStore;
+    this.render();
 }
 
 Store.prototype.render = function(){
@@ -65,22 +67,25 @@ const dubai = new Store("Dubai",11,38,3.7)
 const paris = new Store("Paris",20,38,2.3)
 const lima = new Store("Lima",2,16,4.6)
 
-storeForm.addEventListener("submit",function(event){
+
+
+function hourlyTotal(){
+    const table = document.getElementById("store-table")
+    const totalRow = document.createElement("tr")
+    totalRow.textContent = "Total"
+    table.appendChild(totalRow)
+    for(i=0; i<hour.length; i++){
+        
+    }
+}
+
+storeForm.addEventListener("submit", function (event){
     event.preventDefault();
     const storeName = event.target.name.value;
     const minCustPerHour = event.target.minCust.value;
     const maxCustPerHour = event.target.maxCust.value;
     const avgCookiesPerCust = event.target.avgCookie.value;
-    const newStore = new Store(storeName, minCustPerHour, maxCustPerHour, avgCookiesPerCust)
+    new Store(storeName, minCustPerHour, maxCustPerHour, avgCookiesPerCust)
     console.log(allStores)
-    renderAllStores();
     storeForm.reset();
 })
-
-function renderAllStores(){
-    for(let i = 0; i < allStores.length; i++){
-        allStores[i].render();
-    }
-}
-
-renderAllStores();

@@ -12,7 +12,9 @@ body{
     font-size: 1rem;
 }
 
-img{display: block;}
+img{
+    display: block;
+}
 
 table, th, td{
     border: 1px solid black;
