@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/salmon.png">
 </head>
 <body>
     <header>
@@ -14,11 +15,46 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="sales.html">Sales</a></li>
+                <li><a href="form.html">Add Store</a></li>
             </ul>
         </nav>
     </header>
     <div id="container">
+        <table id="store-table">
+            <tr>
+                <th>Store</th>
+                <th>6am</th>
+                <th>7am</th>
+                <th>8am</th>
+                <th>9am</th>
+                <th>10am</th>
+                <th>11am</th>
+                <th>12pm</th>
+                <th>1pm</th>
+                <th>2pm</th>
+                <th>3pm</th>
+                <th>4pm</th>
+                <th>5pm</th>
+                <th>6pm</th>
+                <th>7pm</th>
+                <th>Total</th>
+            </tr>
+        </table>
     </div>
+    <form id="addStoreForm">
+        <fieldset>
+            <legend>Store Information</legend>
+            <label for="storeNameInput">Store Name</label>
+            <input type="text" name="name" id="storeNameInput">
+            <label for="minCustInput">Min. Customers/Hour</label>
+            <input type="number" name="minCust" id="minCustInput">
+            <label for="maxCustInput">Max. Customers/Hour</label>
+            <input type="number" name="maxCust" id="maxCustInput">
+            <label for="avgCookieInput">Average Cookies/Customer</label>
+            <input type="number" name="avgCookie" id="avgCookieInput" step=0.1>
+        </fieldset>
+        <button type="submit">Submit</button>
+    </form>
     <script src="script.js"></script>
 </body>
 </html>

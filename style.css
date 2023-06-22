@@ -17,9 +17,12 @@ img{display: block;}
 table, th, td{
     border: 1px solid black;
     border-collapse: collapse;
+    padding:0.2rem 0.5rem;
 }
+
 header{
     width: 100%;
+    min-width: fit-content;
     background-color:rgba(0, 99, 133, 0.774);
     display:flex;
     justify-content: space-between;
@@ -90,4 +93,43 @@ main{
     width: 35%;
     height:50%;
     margin-right: 2rem;
+}
+
+legend{
+    font-size: 1.25rem;
+}
+
+input{
+    display: block;
+    margin-bottom: 2rem;
+}
+
+form{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid salmon;
+    max-width: 20%;
+    min-width: fit-content;
+}
+
+fieldset, legend{
+    margin-bottom: 1rem;
+}
+
+fieldset{
+    border: 1px solid salmon;
+    padding: 1rem;
+}
+
+fieldset input:last-of-type{
+    margin-bottom: 0;
+}
+
+button[type="submit"] {
+    background-color: salmon;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
 }
