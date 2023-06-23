@@ -48,7 +48,7 @@ Store.prototype.calcCustomersEachHour = function(){
     for(let i = 0; i < hour.length; i++){
         this.customersEachHour[i]=randomNumber(23,65);
     }
-},
+}
 Store.prototype.calcCookiesEachHour = function(){
     for(let i = 0; i < hour.length; i++){
         const oneHour = Math.ceil(this.customersEachHour[i] * this.avgCookiesPerCust);
@@ -61,13 +61,30 @@ function randomNumber(min,max){
     return Math.floor(Math.random() * (max - min +1) + min);
 }
 
+function topRow(){
+    const tr = document.createElement("tr")
+    const th = document.createElement("th")
+    th.textContent = "Store";
+    tr.appendChild(th)
+    for(let i = 0; i < hour.length; i++){
+        const th = document.createElement("th")
+        th.textContent = hour[i]
+        tr.appendChild(th)
+    }
+    const storeTable = document.getElementById("store-table")
+    const storeTotalHC = document.createElement("th")
+    storeTotalHC.textContent = "Daily Totals";
+    tr.appendChild(storeTotalHC)
+    storeTable.appendChild(tr)
+}
+
+topRow()
+
 const seattle = new Store("Seattle",23,65,6.3)
 const tokyo = new Store("Tokyo",3,24,1.2)
 const dubai = new Store("Dubai",11,38,3.7)
 const paris = new Store("Paris",20,38,2.3)
 const lima = new Store("Lima",2,16,4.6)
-
-
 
 function hourlyTotal(){
     const storeTable = document.getElementById("store-table")
@@ -94,16 +111,21 @@ function hourlyTotal(){
     tr.appendChild(dailyTotalCell);
     storeTable.appendChild(tr)
 }
-
 hourlyTotal();
 
 storeForm.addEventListener("submit", function (event){
     event.preventDefault();
+    const storeTable = document.getElementById("store-table")
+    storeTable.innerHTML = "";
+    topRow();
+    for(let i = 0; i < allStores.length; i++){
+        allStores[i].render();
+    }
     const storeName = event.target.name.value;
     const minCustPerHour = event.target.minCust.value;
     const maxCustPerHour = event.target.maxCust.value;
     const avgCookiesPerCust = event.target.avgCookie.value;
     new Store(storeName, minCustPerHour, maxCustPerHour, avgCookiesPerCust)
-    console.log(allStores)
+    hourlyTotal();
     storeForm.reset();
 })
