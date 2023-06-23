@@ -66,35 +66,64 @@ a:hover, a:active {
 }
 
 main{
-    height: 100vh;
+    height: 100%;
     background-color: rgb(159, 197, 197);
 }
 
 #locations{
+    margin:1rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: salmon;
-    width:fit-content;
-    display: block;
-    flex-wrap: wrap;
-    padding:1rem;
-    margin:5%;
+    width:33vw;
+    min-width: 300px;
 }
 
 #locations h3{
-    font-size: 3rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+}
+
+#locations p{
+    margin:1rem;
+    font-size: 1.2rem;
 }
 
 #locations ul{
-    display: inline-block;
-
+    margin-left:3rem;
+    font-size: 1.2rem;
     list-style: circle;
-    font-size: 1.5rem;
+    display: inline;
+    float:left;
 }
 
-#locations img{
-    display: inline;
-    width: 35%;
-    height:50%;
-    margin-right: 2rem;
+#locations li{
+    margin: 1rem;
+}
+
+#about{
+    width:33vw;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto; 
+    background-color: salmon;
+}
+
+#about h3{
+    padding: 0.5rem;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+}
+
+#about p{
+    margin:1rem;
+    font-size: 1.2rem;
 }
 
 legend{
@@ -107,11 +136,10 @@ input{
 }
 
 form{
-    margin-top: 1rem;
-    margin-left: 1rem;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem auto;
     padding: 1rem;
     border: 1px solid salmon;
+    background-color: rgb(89, 89, 116);
     max-width: 20%;
     min-width: fit-content;
 }
@@ -134,4 +162,35 @@ button[type="submit"] {
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
+}
+
+table{
+    background-color: salmon;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+th{
+    font-size: 1.5rem;
+}
+
+td{
+    font-size: 1.2rem;
+}
+
+h3{
+    margin-top: 1rem;
+    color:white;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.smallPage{
+    height: 100vh;
+}
+
+.contact{
+    text-align: center;
+    color: white;
 }
