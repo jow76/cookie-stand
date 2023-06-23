@@ -80,11 +80,15 @@ function topRow(){
 
 topRow()
 
-const seattle = new Store("Seattle",23,65,6.3)
-const tokyo = new Store("Tokyo",3,24,1.2)
-const dubai = new Store("Dubai",11,38,3.7)
-const paris = new Store("Paris",20,38,2.3)
-const lima = new Store("Lima",2,16,4.6)
+function originalStores(){
+    const seattle = new Store("Seattle",23,65,6.3)
+    const tokyo = new Store("Tokyo",3,24,1.2)
+    const dubai = new Store("Dubai",11,38,3.7)
+    const paris = new Store("Paris",20,38,2.3)
+    const lima = new Store("Lima",2,16,4.6)
+}
+
+originalStores();
 
 function hourlyTotal(){
     const storeTable = document.getElementById("store-table")
@@ -117,6 +121,7 @@ storeForm.addEventListener("submit", function (event){
     event.preventDefault();
     const storeTable = document.getElementById("store-table")
     storeTable.innerHTML = "";
+    allStores.length=0;
     topRow();
     for(let i = 0; i < allStores.length; i++){
         allStores[i].render();
@@ -126,6 +131,7 @@ storeForm.addEventListener("submit", function (event){
     const maxCustPerHour = event.target.maxCust.value;
     const avgCookiesPerCust = event.target.avgCookie.value;
     new Store(storeName, minCustPerHour, maxCustPerHour, avgCookiesPerCust)
+    originalStores();
     hourlyTotal();
     storeForm.reset();
 })
