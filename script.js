@@ -18,11 +18,11 @@ function Store(storeName, minCustPerHour, maxCustPerHour, avgCookiesPerCust){
     this.cookiesEachHour = [];
     this.totalDailyCookies = 0;
     // this.pushStore = function(){
-    //     allStores.push(this)
     //     console.log(allStores)
     // }
     // this.pushStore;
     this.render();
+    allStores.push(this)
 }
 
 Store.prototype.render = function(){
@@ -70,14 +70,32 @@ const lima = new Store("Lima",2,16,4.6)
 
 
 function hourlyTotal(){
-    const table = document.getElementById("store-table")
-    const totalRow = document.createElement("tr")
-    totalRow.textContent = "Total"
-    table.appendChild(totalRow)
-    for(i=0; i<hour.length; i++){
-        
+    const storeTable = document.getElementById("store-table")
+    const tr = document.createElement("tr")
+    const th = document.createElement("th")
+    th.textContent = "Hourly Totals";
+    tr.appendChild(th);
+    for(let i = 0; i < hour.length; i++){
+        const th = document.createElement("th");
+        let hoursAdded = 0;
+        for(let j = 0; j < allStores.length; j++){
+            let hourAmount = allStores[j].cookiesEachHour[i];
+            hoursAdded += hourAmount;
+        }
+        th.textContent = hoursAdded;
+        tr.appendChild(th);
     }
+    let dailyTotal = 0;
+    for(let i = 0; i < allStores.length; i++){
+        dailyTotal += allStores[i].totalDailyCookies;
+    }
+    const dailyTotalCell = document.createElement("th")
+    dailyTotalCell.textContent = dailyTotal;
+    tr.appendChild(dailyTotalCell);
+    storeTable.appendChild(tr)
 }
+
+hourlyTotal();
 
 storeForm.addEventListener("submit", function (event){
     event.preventDefault();
